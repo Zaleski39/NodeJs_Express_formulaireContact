@@ -11,4 +11,6 @@
     const libHello = require('./module/lib-hello');
     libHello.helloWithName("Alexis");
 
-// module externe
+// module externe - site npm node_modules"
+    const randomWords = require('random-words');
+    console.log(randomWords(80));
