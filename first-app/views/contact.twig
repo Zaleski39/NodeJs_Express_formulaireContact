@@ -1,0 +1,48 @@
+{% extends "base.twig" %}
+
+{% block content  %}
+
+    <h1> Contact Page </h1>
+
+    <div class="container">
+        <form method="POST" action="/contact" >
+
+            {% if success  %}
+                <div class="alert alert-success"> {{ success }}</div>
+            {% endif %}
+            {% if error  %}
+                <div class="alert alert-danger"> {{ error }}</div>
+            {% endif %}
+
+            <div class="mb-3">
+                <label for="email" class="form-label"> Votre adresse mail :</label>
+                <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com">
+                {% if formError.email %}<ul class="error"><li>{{ formError.email.message }}</li> </ul>{% endif %}     
+            </div>
+
+            <div class="mb-3">
+                <label for="subject" class="form-label"> Sujet :</label>
+                <input type="subject" name="subject" class="form-control" id="subject" placeholder="Description">
+                {% if formError.subject %}<ul class="error"><li>{{ formError.subject.message }}</li> </ul>{% endif %}     
+            </div>
+
+            <div class="mb-3">
+                <label for="message" class="form-label"> Votre message :</label>
+                <textarea name="message" class="form-control" id="message" row=""> </textarea>
+                {% if formError.message %}<ul class="error"><li>{{ formError.message.message }}</li> </ul>{% endif %}    
+            </div>
+
+            <button type="submit" class="btn btn-lg btn-success btn-block mb-3">Envoyer votre message</button>
+
+        </form>
+
+
+
+
+
+
+
+
+
+
+{% endblock content  %}
